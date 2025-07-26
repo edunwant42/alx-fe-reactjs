@@ -1,4 +1,4 @@
-import useRecipeStore from "./RecipeStore";
+import useRecipeStore from "./recipeStore";
 import "./RecipeList.css";
 
 const RecipeList = () => {
