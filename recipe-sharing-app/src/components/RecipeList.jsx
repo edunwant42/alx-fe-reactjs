@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Eye } from 'lucide-react';
+import { Eye, Heart } from 'lucide-react';
 import useRecipeStore from "./recipeStore";
 import "../assets/css/RecipeList.css";
 
@@ -7,9 +7,20 @@ const RecipeList = () => {
   const recipes = useRecipeStore(state => state.recipes);
   const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
   const searchTerm = useRecipeStore(state => state.searchTerm);
+  const favorites = useRecipeStore(state => state.favorites);
+  const addFavorite = useRecipeStore(state => state.addFavorite);
+  const removeFavorite = useRecipeStore(state => state.removeFavorite);
 
   // Use filtered recipes if there's a search term, otherwise use all recipes
   const displayedRecipes = searchTerm.trim() ? filteredRecipes : recipes;
+
+  const handleToggleFavorite = (recipeId) => {
+    if (favorites.includes(recipeId)) {
+      removeFavorite(recipeId);
+    } else {
+      addFavorite(recipeId);
+    }
+  };
 
   return (
     <div className="recipe-list">
@@ -39,7 +50,20 @@ const RecipeList = () => {
         <div className="recipe-grid">
           {displayedRecipes.map((recipe) => (
             <div key={recipe.id} className="recipe-card">
-              <h3 className="recipe-title">{recipe.title}</h3>
+              <div className="recipe-header">
+                <h3 className="recipe-title">{recipe.title}</h3>
+                <button
+                  onClick={() => handleToggleFavorite(recipe.id)}
+                  className={`favorite-btn ${favorites.includes(recipe.id) ? 'favorited' : ''}`}
+                  aria-label={favorites.includes(recipe.id) ? 'Remove from favorites' : 'Add to favorites'}
+                  title={favorites.includes(recipe.id) ? 'Remove from favorites' : 'Add to favorites'}
+                >
+                  <Heart 
+                    size={18} 
+                    fill={favorites.includes(recipe.id) ? 'currentColor' : 'none'} 
+                  />
+                </button>
+              </div>
               
               {/* Summary */}
               <p className="recipe-summary">{recipe.description.summary}</p>

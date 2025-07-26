@@ -42,8 +42,6 @@
 .clear-search-btn {
   position: absolute;
   right: 12px;
-  top: 30%;
-  transform: translateY(-50%);
   background: none;
   border: none;
   color: #666;
@@ -57,8 +55,7 @@
 }
 
 .clear-search-btn:hover {
-  background-color: #f8f9fa;
-  color: #333;
+  color:#ff4800;
 }
 
 .search-info {

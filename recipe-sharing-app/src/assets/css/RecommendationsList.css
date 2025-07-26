@@ -1,0 +1,182 @@
+/* RecommendationsList Component Styles */
+.recommendations-list {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+}
+
+.recommendations-list h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  justify-content: center;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+.recommendations-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.no-recommendations {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  background: linear-gradient(135deg, #ffffff 25%, #f1db7f 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.empty-sparkles {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.no-recommendations p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.recommendations-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recommendation-card {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd700, #ff6b35, #f7931e);
+}
+
+.recommendation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.recommendation-title {
+  color: #333;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.add-favorite-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: 10px;
+}
+
+.add-favorite-btn:hover {
+  color: #e74c3c;
+  /* background-color: #ffeaea; */
+  transform: scale(1.1);
+}
+
+.recommendation-summary {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.recommendation-preview h4 {
+  color: #333;
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ingredients-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.ingredient-tag {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.recommendation-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-recommendation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f39c12;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.view-recommendation-link:hover {
+  background-color: #e67e22;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .recommendations-list {
+    padding: 15px;
+  }
+  
+  .recommendation-card {
+    padding: 15px;
+  }
+  
+  .recommendation-title {
+    font-size: 1.2rem;
+  }
+  
+  .ingredients-tags {
+    gap: 6px;
+  }
+  
+  .ingredient-tag {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}

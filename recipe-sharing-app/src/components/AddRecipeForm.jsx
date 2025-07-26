@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { Plus } from 'lucide-react';
 import useRecipeStore from './recipeStore';
+
+
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore(state => state.addRecipe);
@@ -27,13 +30,13 @@ const AddRecipeForm = () => {
       if (currentSection === 'summary') {
         summary += (summary ? ' ' : '') + line;
       } else if (currentSection === 'ingredients') {
-        // Remove bullet points, dashes, or numbers
-        const cleanIngredient = line.replace(/^[-•*\d.)\s]+/, '').trim();
+        // Remove only bullet points and dashes at the start, keep quantities
+        const cleanIngredient = line.replace(/^[-•*]\s*/, '').trim();
         if (cleanIngredient) {
           ingredients.push(cleanIngredient);
         }
       } else if (currentSection === 'instructions') {
-        // Remove numbers and dots
+        // Remove only step numbers at the start (like "1. " or "2. ")
         const cleanInstruction = line.replace(/^\d+\.\s*/, '').trim();
         if (cleanInstruction) {
           instructions.push(cleanInstruction);
@@ -97,6 +100,7 @@ Instructions:
           />
         </div>
         <button type="submit">
+          <Plus className='add-recipe-icon' size={16} />
           Add Recipe
         </button>
       </form>

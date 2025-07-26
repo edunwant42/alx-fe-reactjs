@@ -4,6 +4,8 @@ import AddRecipeForm from './components/AddRecipeForm'
 import WelcomeScreen from './components/WelcomeScreen'
 import RecipeDetails from './components/RecipeDetails'
 import SearchBar from './components/SearchBar'
+import FavoritesList from './components/FavoritesList'
+import RecommendationsList from './components/RecommendationsList'
 
 import logoImg from './assets/img/icons/recipe-book-64.png';
 
@@ -47,7 +49,9 @@ function App() {
               <>
                 <AddRecipeForm />
                 <SearchBar />
+                <RecommendationsList />
                 <RecipeList />
+                <FavoritesList />
               </>
             } />
             <Route path="/recipe/:id" element={<RecipeDetails />} />
