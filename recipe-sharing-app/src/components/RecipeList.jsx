@@ -1,4 +1,4 @@
-import useRecipeStore from "../assets/js/RecipeStore";
+import useRecipeStore from "./RecipeStore";
 import "./RecipeList.css";
 
 const RecipeList = () => {
@@ -16,7 +16,7 @@ const RecipeList = () => {
           {recipes.map((recipe) => (
             <div key={recipe.id} className="recipe-card">
               <h3 className="recipe-title">{recipe.title}</h3>
-
+``
               {/* Summary */}
               <p className="recipe-summary">{recipe.description.summary}</p>
 
