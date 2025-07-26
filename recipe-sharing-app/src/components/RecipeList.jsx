@@ -1,5 +1,7 @@
-import useRecipeStore from "./recipeStore";
-import "./RecipeList.css";
+import { Link } from 'react-router-dom';
+import { Eye } from 'lucide-react';
+import useRecipeStore from "./RecipeStore";
+import "../assets/css/RecipeList.css";
 
 const RecipeList = () => {
   const recipes = useRecipeStore((state) => state.recipes);
@@ -16,7 +18,7 @@ const RecipeList = () => {
           {recipes.map((recipe) => (
             <div key={recipe.id} className="recipe-card">
               <h3 className="recipe-title">{recipe.title}</h3>
-``
+              
               {/* Summary */}
               <p className="recipe-summary">{recipe.description.summary}</p>
 
@@ -24,20 +26,24 @@ const RecipeList = () => {
               <div className="recipe-section">
                 <h4 className="section-title">Ingredients</h4>
                 <ul className="ingredients-list">
-                  {recipe.description.ingredients.map((ingredient, index) => (
+                  {recipe.description.ingredients.slice(0, 3).map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                   ))}
+                  {recipe.description.ingredients.length > 3 && (
+                    <li className="more-items">... and {recipe.description.ingredients.length - 3} more</li>
+                  )}
                 </ul>
               </div>
 
-              {/* Instructions */}
-              <div className="recipe-section">
-                <h4 className="section-title">Instructions</h4>
-                <ol className="instructions-list">
-                  {recipe.description.instructions.map((instruction, index) => (
-                    <li key={index}>{instruction}</li>
-                  ))}
-                </ol>
+              {/* View Details Link */}
+              <div className="recipe-actions">
+                <Link 
+                  to={`/recipe/${recipe.id}`} 
+                  className="view-details-link"
+                >
+                  <Eye size={16} />
+                  View Full Recipe
+                </Link>
               </div>
             </div>
           ))}

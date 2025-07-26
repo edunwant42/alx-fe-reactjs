@@ -1,0 +1,100 @@
+/* Simple EditRecipeForm Styles */
+.edit-recipe-form {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-recipe-form h2 {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.save-button,
+.cancel-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #f39c12;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #e67e22;
+}
+
+.cancel-button {
+  background-color: #999;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #777;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .edit-recipe-form {
+    padding: 15px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}
