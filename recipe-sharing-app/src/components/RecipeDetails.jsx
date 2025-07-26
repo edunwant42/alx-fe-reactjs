@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { Edit, ArrowLeft } from 'lucide-react';
-import useRecipeStore from './RecipeStore';
+import useRecipeStore from './recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
 import { useState } from 'react';

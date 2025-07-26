@@ -1,21 +1,43 @@
 import { Link } from 'react-router-dom';
 import { Eye } from 'lucide-react';
-import useRecipeStore from "./RecipeStore";
+import useRecipeStore from "./recipeStore";
 import "../assets/css/RecipeList.css";
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);
+  const recipes = useRecipeStore(state => state.recipes);
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+  const searchTerm = useRecipeStore(state => state.searchTerm);
+
+  // Use filtered recipes if there's a search term, otherwise use all recipes
+  const displayedRecipes = searchTerm.trim() ? filteredRecipes : recipes;
 
   return (
     <div className="recipe-list">
       <h2>Recipe List</h2>
-      {recipes.length === 0 ? (
+      
+      {/* Show search results info */}
+      {searchTerm.trim() && (
+        <div className="search-results-info">
+          <p>
+            {displayedRecipes.length === 0 
+              ? `No recipes found for "${searchTerm}"` 
+              : `Found ${displayedRecipes.length} recipe${displayedRecipes.length !== 1 ? 's' : ''} for "${searchTerm}"`
+            }
+          </p>
+        </div>
+      )}
+      
+      {displayedRecipes.length === 0 && !searchTerm.trim() ? (
         <div className="no-recipes">
           <p>No recipes yet. Add your first recipe!</p>
         </div>
+      ) : displayedRecipes.length === 0 && searchTerm.trim() ? (
+        <div className="no-search-results">
+          <p>Try adjusting your search terms or browse all recipes.</p>
+        </div>
       ) : (
         <div className="recipe-grid">
-          {recipes.map((recipe) => (
+          {displayedRecipes.map((recipe) => (
             <div key={recipe.id} className="recipe-card">
               <h3 className="recipe-title">{recipe.title}</h3>
               

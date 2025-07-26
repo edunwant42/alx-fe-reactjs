@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useRecipeStore from './RecipeStore';
+import useRecipeStore from './recipeStore';
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore(state => state.addRecipe);
@@ -81,17 +81,17 @@ const AddRecipeForm = () => {
             onChange={(e) => setDescription(e.target.value)}
             placeholder={`Recipe description with ingredients and instructions:
 
-Light and airy pancakes perfect for breakfast.
+Classic French Press Coffee
 
 Ingredients:
-- 2 cups flour
-- 2 eggs
-- 1 cup milk
+- 30g ground coffee
+- 500ml hot water
 
 Instructions:
-1. Mix dry ingredients
-2. Add wet ingredients
-3. Cook on griddle`}
+1. Heat water to 200°F
+2. Add coffee to press
+3. Pour water and steep 4 minutes
+4. Press and serve`}
             style={{ minHeight: '200px', width: '100%' }}
             required
           />

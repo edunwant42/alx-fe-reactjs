@@ -51,7 +51,12 @@ input:focus, textarea:focus {
 button {
   border-radius: 9px;
   border: 1px solid transparent;
-  background-color: #ecc31c;
+  background-color: #f39c12;
+  /* push it to the right */
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -61,7 +66,7 @@ button {
   color: white;
 }
 button:hover {
-   filter: drop-shadow(0 0 4px #f1d666);
+   filter: drop-shadow(0 0 4px #f3d963);
 }
 
 textarea {

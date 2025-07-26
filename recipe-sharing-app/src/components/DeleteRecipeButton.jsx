@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Trash2 } from 'lucide-react';
-import useRecipeStore from './RecipeStore';
+import useRecipeStore from './recipeStore';
 import '../assets/css/DeleteRecipeButton.css';
 
 const DeleteRecipeButton = ({ recipeId, recipeName }) => {

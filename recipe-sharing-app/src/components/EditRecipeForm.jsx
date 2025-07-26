@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Save, X } from 'lucide-react';
-import useRecipeStore from './RecipeStore';
+import useRecipeStore from './recipeStore';
 import '../assets/css/EditRecipeForm.css';
 
 const EditRecipeForm = ({ recipe, onSave, onCancel }) => {
