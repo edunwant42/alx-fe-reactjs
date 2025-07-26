@@ -5,8 +5,10 @@ import useRecipeStore from './recipeStore';
 import '../assets/css/RecommendationsList.css';
 
 const RecommendationsList = () => {
-  const recommendations = useRecipeStore(state => state.recommendations);
+  // Subscribe to both recipes and favorites so component re-renders on any change
+  const recipes = useRecipeStore(state => state.recipes);
   const favorites = useRecipeStore(state => state.favorites);
+  const recommendations = useRecipeStore(state => state.recommendations);
   const generateRecommendations = useRecipeStore(state => state.generateRecommendations);
   const addFavorite = useRecipeStore(state => state.addFavorite);
 

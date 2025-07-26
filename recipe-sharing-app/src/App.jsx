@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import WelcomeScreen from './components/WelcomeScreen'
 import RecipeDetails from './components/RecipeDetails'
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
 import FavoritesList from './components/FavoritesList'
 import RecommendationsList from './components/RecommendationsList'
 
@@ -16,6 +16,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [showAddForm, setShowAddForm] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,8 +25,7 @@ function App() {
         setShowWelcome(false);
       }, 500);
     }, 3000);
-
-    return () => clearTimeout(timer); // Cleanup
+    return () => clearTimeout(timer);
   }, []);
 
   if (showWelcome) {
@@ -43,18 +43,48 @@ function App() {
           <img src={logoImg} alt="Recipe Sharing App Logo" />
           Recipe Sharing Application
         </h1>
+        <nav style={{ marginBottom: '24px', display: 'flex', gap: '16px', justifyContent: 'center' }}>
+          <Link to="/recommended" className="nav-link">Recommended</Link>
+          <Link to="/favorites" className="nav-link">Favorites</Link>
+          <Link to="/recipes" className="nav-link">All Recipes</Link>
+        </nav>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
           <Routes>
-            <Route path="/" element={
+            <Route path="/recommended" element={<RecommendationsList />} />
+            <Route path="/favorites" element={<FavoritesList />} />
+            <Route path="/recipes" element={
               <>
-                <AddRecipeForm />
                 <SearchBar />
-                <RecommendationsList />
+                <button className="main-action-btn" style={{marginBottom: '20px'}} onClick={() => setShowAddForm(true)}>
+                  + Add New Recipe
+                </button>
+                {showAddForm && (
+                  <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                      <AddRecipeForm onClose={() => setShowAddForm(false)} />
+                    </div>
+                  </div>
+                )}
                 <RecipeList />
-                <FavoritesList />
               </>
             } />
             <Route path="/recipe/:id" element={<RecipeDetails />} />
+            <Route path="/" element={
+              <>
+                <SearchBar />
+                <button className="main-action-btn" style={{marginBottom: '20px'}} onClick={() => setShowAddForm(true)}>
+                  + Add New Recipe
+                </button>
+                {showAddForm && (
+                  <div className="modal-overlay" onClick={() => setShowAddForm(false)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                      <AddRecipeForm onClose={() => setShowAddForm(false)} />
+                    </div>
+                  </div>
+                )}
+                <RecipeList />
+              </>
+            } />
           </Routes>
         </div>
       </div>

@@ -1,3 +1,47 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeInBg 0.3s;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  padding: 32px 24px 24px 24px;
+  min-width: 340px;
+  width: 720px;
+  margin: auto;
+  position: relative;
+  text-align: left;
+  animation: scaleIn 0.3s;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
 
 #root {
   width: 720px;
@@ -22,7 +66,6 @@
 
 /* Form styling */
 form {
-  background: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
@@ -48,15 +91,32 @@ input:focus, textarea:focus {
   border-color: #f39c12;
 }
 
+.recipe-title-input {
+  margin-bottom: 20px;
+}
+
+.recipe-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.add-recipe-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
 /* Main action buttons (Add Recipe, etc.) */
-button.main-action-btn, 
+
+button.main-action-btn,
 button[type="submit"] {
   border-radius: 9px;
   border: 1px solid transparent;
   background-color: #f39c12;
-  display: block;
-  margin-top: 10px;
-  margin-left: auto;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -64,11 +124,12 @@ button[type="submit"] {
   cursor: pointer;
   transition: border-color 0.25s;
   color: white;
+  margin: 0;
 }
 
 button.main-action-btn:hover,
 button[type="submit"]:hover {
-   filter: drop-shadow(0 0 4px #f3d963);
+   filter: drop-shadow(0 0 8px #f3d963);
 }
 
 button svg {
@@ -104,4 +165,50 @@ textarea {
 .recipe-container p {
   color: #666;
   line-height: 1.5;
+}
+
+.close-btn {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.25s, box-shadow 0.25s;
+  margin: 0;
+}
+
+.close-btn:hover {
+  background-color: #c0392b;
+  box-shadow: 0 0 8px #e74c3c33;
+}
+
+/* Navigation Bar Styling */
+nav {
+  padding: 12px 0;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #d35400;
+  background: #ffe4b9;
+  padding: 8px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(211,84,0,0.07);
+}
+
+.nav-link:hover, .nav-link.active {
+  background: #ffd9b3;
+  color: #a04000;
+  box-shadow: 0 2px 8px rgba(211,84,0,0.12);
 }

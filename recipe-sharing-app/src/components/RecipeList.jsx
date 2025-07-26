@@ -50,8 +50,23 @@ const RecipeList = () => {
         <div className="recipe-grid">
           {displayedRecipes.map((recipe) => (
             <div key={recipe.id} className="recipe-card">
-              <div className="recipe-header">
-                <h3 className="recipe-title">{recipe.title}</h3>
+              <div className="recipe-header" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                {/* Recipe Image */}
+                {recipe.image && (
+                  <img
+                    src={recipe.image}
+                    alt={recipe.title + ' image'}
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      objectFit: 'cover',
+                      borderRadius: '8px',
+                      marginBottom: 0,
+                      display: 'block'
+                    }}
+                  />
+                )}
+                <h3 className="recipe-title" style={{ margin: 0 }}>{recipe.title}</h3>
                 <button
                   onClick={() => handleToggleFavorite(recipe.id)}
                   className={`favorite-btn ${favorites.includes(recipe.id) ? 'favorited' : ''}`}

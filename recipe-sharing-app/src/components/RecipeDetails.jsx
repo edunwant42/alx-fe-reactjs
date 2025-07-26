@@ -61,6 +61,22 @@ const RecipeDetails = () => {
         <div className="recipe-content">
           <h1 className="recipe-title">{recipe.title}</h1>
           
+          {recipe.image && (
+            <img
+              src={recipe.image}
+              alt={recipe.title + ' image'}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '320px',
+                borderRadius: '12px',
+                marginBottom: '24px',
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto'
+              }}
+            />
+          )}
+
           <div className="recipe-summary">
             <p>{recipe.description.summary}</p>
           </div>
