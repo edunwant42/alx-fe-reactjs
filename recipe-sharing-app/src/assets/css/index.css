@@ -1,0 +1,28 @@
+
+@font-face {
+  font-family: 'Gugi';
+  src: url('../fonts/Gugi/Gugi-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'Gugi', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: rgba(63, 62, 62, 0.87);
+}

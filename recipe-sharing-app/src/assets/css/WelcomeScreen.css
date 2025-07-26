@@ -1,0 +1,61 @@
+/* WelcomeScreen Component Styles */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ebdda6 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.welcome-screen.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.welcome-image {
+  max-width: 450px;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 10px #ecc31c);
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  animation: slideInUp 0.8s ease-out 0.4s both;
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
