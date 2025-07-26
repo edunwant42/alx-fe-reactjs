@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import RecipeList from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import WelcomeScreen from './components/WelcomeScreen'
@@ -44,9 +44,9 @@ function App() {
           Recipe Sharing Application
         </h1>
         <nav style={{ marginBottom: '24px', display: 'flex', gap: '16px', justifyContent: 'center' }}>
-          <Link to="/recommended" className="nav-link">Recommended</Link>
-          <Link to="/favorites" className="nav-link">Favorites</Link>
-          <Link to="/recipes" className="nav-link">All Recipes</Link>
+          <NavLink to="/recommended" className="nav-link">Recommended</NavLink>
+          <NavLink to="/favorites" className="nav-link">Favorites</NavLink>
+          <NavLink to="/recipes" className="nav-link">All Recipes</NavLink>
         </nav>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
           <Routes>
