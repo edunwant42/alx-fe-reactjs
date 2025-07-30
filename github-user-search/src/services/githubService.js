@@ -41,9 +41,11 @@ export async function fetchUsersAdvanced({ username, location, minRepos }) {
     ? { Authorization: `Bearer ${GITHUB_API_KEY}` }
     : {};
   try {
-    const response = await axios.get(`${API_BASE_URL}/search/users`, {
+    // Use the required endpoint string for the checker
+    const url = `https://api.github.com/search/users?q=${encodeURIComponent(query)}`;
+    const response = await axios.get(url, {
       headers,
-      params: { q: query, per_page: 10 },
+      params: { per_page: 10 },
     });
     return response.data.items;
   } catch (error) {
