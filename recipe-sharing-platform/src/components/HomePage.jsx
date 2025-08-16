@@ -1,19 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import recipesData from "../data.json";
+import initialRecipes from "../data.json";
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // Load mock data into state
-    setRecipes(recipesData);
+    // Try to get recipes from localStorage first, fallback to initial data
+    const storedRecipes = localStorage.getItem('recipes');
+    if (storedRecipes) {
+      try {
+        setRecipes(JSON.parse(storedRecipes));
+      } catch (error) {
+        console.error('Error parsing stored recipes:', error);
+        setRecipes(initialRecipes);
+        localStorage.setItem('recipes', JSON.stringify(initialRecipes));
+      }
+    } else {
+      // First time, save initial recipes to localStorage
+      setRecipes(initialRecipes);
+      localStorage.setItem('recipes', JSON.stringify(initialRecipes));
+    }
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Recipe Sharing Platform</h1>
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-6 text-gray-800">Recipe Sharing Platform</h1>
+          <Link
+            to="/add-recipe"
+            className="inline-flex items-center bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition-colors duration-200 font-medium"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add New Recipe
+          </Link>
+        </div>
 
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {recipes.map((recipe) => (
