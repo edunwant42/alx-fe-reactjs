@@ -1,0 +1,26 @@
+[
+  {
+    "id": "9e8d7",
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://static.vecteezy.com/system/resources/previews/020/153/293/non_2x/fried-noodles-with-meat-and-vegetables-chinese-food-illustration-vector.jpg"
+  },
+  {
+    "id": "1f0e2",
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://static.vecteezy.com/system/resources/previews/049/349/828/non_2x/grilled-chicken-illustration-free-vector.jpg"
+  },
+  {
+    "id": "2a1f3",
+    "title": "Vegetable Stir Fry",
+    "summary": "Fresh vegetables sautéed in a light soy-based sauce for a quick healthy meal.",
+    "image": "https://img.freepik.com/premium-vector/beef-vegetables-stir-fry-black-plate-vector-illustration_338371-848.jpg"
+  },
+  {
+    "id": "3b2a4",
+    "title": "Classic Ice Cream Sundae",
+    "summary": "A delicious layered dessert with vanilla ice cream, chocolate sauce, whipped cream, and a cherry on top served in an elegant glass.",
+    "image": "https://media.istockphoto.com/id/1438105077/fr/vectoriel/sundae-%C3%A0-la-cr%C3%A8me-glac%C3%A9e-au-chocolat-avec-cr%C3%A8me-fouett%C3%A9e-et-cerise-sur-le-vecteur-dic%C3%B4ne.jpg?s=612x612&w=0&k=20&c=teAhnL_dy1qjn-Y3dfnbOyNoLb15tThgDxadzg60ja0="
+  }
+]
