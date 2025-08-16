@@ -3,24 +3,111 @@
     "id": "9e8d7",
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://static.vecteezy.com/system/resources/previews/020/153/293/non_2x/fried-noodles-with-meat-and-vegetables-chinese-food-illustration-vector.jpg"
+    "image": "https://static.vecteezy.com/system/resources/previews/020/153/293/non_2x/fried-noodles-with-meat-and-vegetables-chinese-food-illustration-vector.jpg",
+    "ingredients": [
+      "400g spaghetti pasta",
+      "200g pancetta or bacon, diced",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "50g Parmesan cheese, grated",
+      "2 cloves garlic, minced",
+      "Black pepper to taste",
+      "Salt for pasta water"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti until al dente.",
+      "While pasta cooks, heat a large skillet over medium heat and cook pancetta until crispy.",
+      "In a bowl, whisk together eggs, both cheeses, and black pepper.",
+      "Reserve 1 cup of pasta cooking water, then drain the pasta.",
+      "Add hot pasta to the skillet with pancetta and toss.",
+      "Remove from heat and quickly mix in the egg mixture, adding pasta water as needed.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
   },
   {
     "id": "1f0e2",
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://static.vecteezy.com/system/resources/previews/049/349/828/non_2x/grilled-chicken-illustration-free-vector.jpg"
+    "image": "https://static.vecteezy.com/system/resources/previews/049/349/828/non_2x/grilled-chicken-illustration-free-vector.jpg",
+    "ingredients": [
+      "500g boneless chicken, cut into chunks",
+      "1 cup plain yogurt",
+      "2 tsp garam masala",
+      "1 tsp cumin powder",
+      "1 tsp coriander powder",
+      "400g canned tomatoes",
+      "200ml heavy cream",
+      "1 large onion, diced",
+      "3 cloves garlic, minced",
+      "1 inch ginger, grated",
+      "2 tbsp vegetable oil",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt, half of garam masala, cumin, and salt for 30 minutes.",
+      "Heat oil in a large pan and cook marinated chicken until golden. Set aside.",
+      "In the same pan, sauté onions until golden brown.",
+      "Add garlic and ginger, cook for 1 minute until fragrant.",
+      "Add remaining spices and cook for 30 seconds.",
+      "Add canned tomatoes and simmer for 10 minutes until thick.",
+      "Stir in cream and cooked chicken, simmer for 5 minutes.",
+      "Serve hot with rice or naan bread."
+    ]
   },
   {
     "id": "2a1f3",
     "title": "Vegetable Stir Fry",
     "summary": "Fresh vegetables sautéed in a light soy-based sauce for a quick healthy meal.",
-    "image": "https://img.freepik.com/premium-vector/beef-vegetables-stir-fry-black-plate-vector-illustration_338371-848.jpg"
+    "image": "https://img.freepik.com/premium-vector/beef-vegetables-stir-fry-black-plate-vector-illustration_338371-848.jpg",
+    "ingredients": [
+      "2 tbsp vegetable oil",
+      "1 bell pepper, sliced",
+      "1 carrot, julienned",
+      "1 zucchini, sliced",
+      "200g broccoli florets",
+      "1 onion, sliced",
+      "2 cloves garlic, minced",
+      "3 tbsp soy sauce",
+      "1 tbsp oyster sauce",
+      "1 tsp sesame oil",
+      "1 tsp cornstarch",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Heat vegetable oil in a large wok or skillet over high heat.",
+      "Add onion and garlic, stir-fry for 1 minute until fragrant.",
+      "Add harder vegetables like carrots and broccoli first, cook for 2 minutes.",
+      "Add bell pepper and zucchini, continue stir-frying for 2-3 minutes.",
+      "Mix soy sauce, oyster sauce, sesame oil, and cornstarch in a small bowl.",
+      "Pour sauce over vegetables and toss to coat evenly.",
+      "Cook for another 1-2 minutes until vegetables are tender-crisp.",
+      "Serve immediately over steamed rice."
+    ]
   },
   {
     "id": "3b2a4",
     "title": "Classic Ice Cream Sundae",
     "summary": "A delicious layered dessert with vanilla ice cream, chocolate sauce, whipped cream, and a cherry on top served in an elegant glass.",
-    "image": "https://media.istockphoto.com/id/1438105077/fr/vectoriel/sundae-%C3%A0-la-cr%C3%A8me-glac%C3%A9e-au-chocolat-avec-cr%C3%A8me-fouett%C3%A9e-et-cerise-sur-le-vecteur-dic%C3%B4ne.jpg?s=612x612&w=0&k=20&c=teAhnL_dy1qjn-Y3dfnbOyNoLb15tThgDxadzg60ja0="
+    "image": "https://media.istockphoto.com/id/1438105077/fr/vectoriel/sundae-%C3%A0-la-cr%C3%A8me-glac%C3%A9e-au-chocolat-avec-cr%C3%A8me-fouett%C3%A9e-et-cerise-sur-le-vecteur-dic%C3%B4ne.jpg?s=612x612&w=0&k=20&c=teAhnL_dy1qjn-Y3dfnbOyNoLb15tThgDxadzg60ja0=",
+    "ingredients": [
+      "4 scoops vanilla ice cream",
+      "1/4 cup chocolate sauce",
+      "1/4 cup caramel sauce",
+      "1/2 cup whipped cream",
+      "2 tbsp chopped nuts (almonds or walnuts)",
+      "4 maraschino cherries",
+      "2 chocolate wafer cookies",
+      "2 tall sundae glasses"
+    ],
+    "instructions": [
+      "Chill the sundae glasses in the freezer for 10 minutes.",
+      "Place 2 scoops of vanilla ice cream in each chilled glass.",
+      "Drizzle chocolate sauce generously over the ice cream.",
+      "Add a layer of caramel sauce on top of the chocolate.",
+      "Top with a generous dollop of whipped cream.",
+      "Sprinkle chopped nuts over the whipped cream.",
+      "Place a maraschino cherry on top and insert a wafer cookie.",
+      "Serve immediately with long spoons."
+    ]
   }
 ]
