@@ -1,16 +1,40 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import recipesData from "../data.json";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const RecipeDetail = () => {
-  const [recipe, setRecipe] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [recipe, setRecipe] = useState(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
-    // Find the recipe with the matching ID
-    const foundRecipe = recipesData.find((recipe) => recipe.id === id);
-    setRecipe(foundRecipe);
+    // Get recipe from localStorage
+    const storedRecipes = localStorage.getItem('recipes');
+    if (storedRecipes) {
+      try {
+        const recipes = JSON.parse(storedRecipes);
+        const foundRecipe = recipes.find(r => r.id === id);
+        setRecipe(foundRecipe);
+      } catch (error) {
+        console.error('Error parsing stored recipes:', error);
+      }
+    }
   }, [id]);
+
+  const handleDelete = () => {
+    // Remove recipe from localStorage
+    const storedRecipes = localStorage.getItem('recipes');
+    if (storedRecipes) {
+      try {
+        const recipes = JSON.parse(storedRecipes);
+        const updatedRecipes = recipes.filter(r => r.id !== id);
+        localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+        navigate('/');
+      } catch (error) {
+        console.error('Error deleting recipe:', error);
+      }
+    }
+  };
 
   if (!recipe) {
     return (
@@ -51,9 +75,31 @@ const RecipeDetail = () => {
               className="w-full h-64 md:h-80 object-contain object-center bg-white"
             />
             <div className="p-6 md:p-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                {recipe.title}
-              </h1>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0">
+                  {recipe.title}
+                </h1>
+                <div className="flex gap-3">
+                  <Link
+                    to={`/edit-recipe/${recipe.id}`}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-200 font-medium text-sm flex items-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => setShowDeleteConfirm(true)}
+                    className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-colors duration-200 font-medium text-sm flex items-center"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Delete
+                  </button>
+                </div>
+              </div>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {recipe.summary}
               </p>
@@ -103,6 +149,32 @@ const RecipeDetail = () => {
             </div>
           </div>
         </div>
+
+        {/* Delete Confirmation Modal */}
+        {showDeleteConfirm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+              <h3 className="text-lg font-bold text-gray-800 mb-4">Delete Recipe</h3>
+              <p className="text-gray-600 mb-6">
+                Are you sure you want to delete "{recipe.title}"? This action cannot be undone.
+              </p>
+              <div className="flex gap-3 justify-end">
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleDelete}
+                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
