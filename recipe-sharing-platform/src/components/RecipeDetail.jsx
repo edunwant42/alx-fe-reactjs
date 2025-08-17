@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import initialRecipes from "../data.json";
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -8,17 +9,24 @@ const RecipeDetail = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
-    // Get recipe from localStorage
+    // Get recipe from localStorage first, fallback to data.json
     const storedRecipes = localStorage.getItem('recipes');
     if (storedRecipes) {
       try {
         const recipes = JSON.parse(storedRecipes);
         const foundRecipe = recipes.find(r => r.id === id);
-        setRecipe(foundRecipe);
+        if (foundRecipe) {
+          setRecipe(foundRecipe);
+          return;
+        }
       } catch (error) {
         console.error('Error parsing stored recipes:', error);
       }
     }
+    
+    // Fallback to data.json if not found in localStorage
+    const foundRecipe = initialRecipes.find(r => r.id === id);
+    setRecipe(foundRecipe);
   }, [id]);
 
   const handleDelete = () => {
