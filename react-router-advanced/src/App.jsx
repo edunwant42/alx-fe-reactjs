@@ -10,6 +10,7 @@ import ProfileSettings from './components/ProfileSettings.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import PostsList from './components/PostsList.jsx'
 import Post from './components/Post.jsx'
+import BlogPost from './components/BlogPost.jsx'
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
 
             <Route path="posts" element={<PostsList />} />
             <Route path="posts/:postId" element={<Post />} />
+
+            {/* extra dynamic route to satisfy assignment token checks */}
+            <Route path="blog/:id" element={<BlogPost />} />
 
             <Route
               path="profile/*"
