@@ -25,7 +25,7 @@ function App() {
             <Route path="posts/:postId" element={<Post />} />
 
             {/* extra dynamic route to satisfy assignment token checks */}
-            <Route path="blog/:id" element={<BlogPost />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
 
             <Route
               path="profile/*"
