@@ -8,7 +8,7 @@ async function fetchPosts() {
 }
 
 export default function PostsComponent() {
-  const { data, error, isLoading, refetch, isFetching } = useQuery({
+  const { data, error, isLoading, isError, refetch, isFetching } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
     staleTime: 1000 * 60 * 5, // 5 minutes
@@ -16,7 +16,7 @@ export default function PostsComponent() {
   })
 
   if (isLoading) return <div>Loading posts...</div>
-  if (error) return <div style={{ color: 'red' }}>Error: {error.message}</div>
+  if (isError) return <div style={{ color: 'red' }}>Error: {error?.message}</div>
 
   return (
     <div>
