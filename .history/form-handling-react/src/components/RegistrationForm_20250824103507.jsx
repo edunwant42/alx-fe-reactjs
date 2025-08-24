@@ -17,10 +17,8 @@ function RegistrationForm() {
   const validate = () => {
     const err = {};
     if (!username.trim()) err.username = 'Username is required';
-  // explicit empty-check required by the auto-checker
-  if (!email) err.email = 'Email is required';
-  else if (!email.trim()) err.email = 'Email is required';
-  else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) err.email = 'Email is invalid';
+    if (!email.trim()) err.email = 'Email is required';
+    else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) err.email = 'Email is invalid';
     if (!password) err.password = 'Password is required';
     else if (password.length < 6) err.password = 'Password must be at least 6 characters';
     return err;
