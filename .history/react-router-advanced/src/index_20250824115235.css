@@ -1,0 +1,23 @@
+:root{
+  --accent:#2b6cb0;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:#fbfbfc;color:#111}
+.app-container{max-width:900px;margin:1rem auto;padding:0 1rem}
+header{display:flex;justify-content:space-between;align-items:center}
+nav a{color:var(--muted);text-decoration:none;margin-right:12px}
+nav a.active{color:var(--accent);font-weight:600}
+nav button{background:var(--accent);color:white;border:none;padding:6px 10px;border-radius:6px;cursor:pointer}
+main{margin-top:20px}
+.card{background:white;border:1px solid #eee;padding:12px;border-radius:8px}
+
+.btn{background:var(--accent);color:white;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
+.btn.secondary{background:#eee;color:#111;border:1px solid #ddd}
+.form{display:block;max-width:420px}
+.form label{display:block;margin-bottom:8px;color:var(--muted)}
+.form input[type="text"],.form input[type="email"],.form input[type="password"]{display:block;width:100%;padding:8px;border:1px solid #e6e6e6;border-radius:6px;margin-top:6px}
+.post-list{list-style:none;padding:0}
+.post-list li{padding:10px 0;border-bottom:1px solid #f1f1f1}
+.post-link{color:var(--accent);text-decoration:none}
+.muted{color:var(--muted)}
