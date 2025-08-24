@@ -1,12 +1,31 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ # Advanced Routing Demo
 
-Currently, two official plugins are available:
+This folder demonstrates advanced routing patterns with `react-router-dom`: nested routes, dynamic routes, and protected routes (simulated authentication).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+What to look at
+- `src/App.jsx`: router setup and route definitions.
+- `src/context/AuthContext.jsx`: very small auth simulation used by the protected route.
+- `src/components/ProtectedRoute.jsx`: redirects unauthenticated users to `/login`.
+- `src/components/Profile.jsx`, `ProfileDetails.jsx`, `ProfileSettings.jsx`: example of a nested route.
+- `src/components/PostsList.jsx`, `Post.jsx`: dynamic route using `:postId`.
 
-## Expanding the ESLint configuration
+Run locally
+1. Install dependencies and start the dev server:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cd react-router-advanced
+npm install react-router-dom
+npm run dev
+```
+
+2. Open the printed URL (usually `http://localhost:5173/`).
+
+Routes and usage
+- `/`: Home page.
+- `/posts`: Posts list; click any post to open `/posts/:postId` (dynamic route).
+- `/profile`: Protected route; if not logged in you will be redirected to `/login`. After login you return to `/profile` and can open nested children (`/profile/settings`).
+
+Notes
+- Auth is simulated in `AuthContext` using component state and is not persisted.
+- `ProtectedRoute` uses `<Navigate to="/login" state={{ from: location }} />` so users return to the page they requested after login.

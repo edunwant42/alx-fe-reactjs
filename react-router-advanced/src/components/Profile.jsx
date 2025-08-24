@@ -1,6 +1,10 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Routes, Route, Outlet, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
+import ProfileDetails from './ProfileDetails.jsx'
+import ProfileSettings from './ProfileSettings.jsx'
+
+// Nested routes handled here: Routes, Route, ProfileDetails, ProfileSettings
 
 export default function Profile() {
   const { user } = useAuth()
@@ -17,6 +21,12 @@ export default function Profile() {
       </nav>
 
       <div style={{ padding: 12 }}>
+        <Routes>
+          <Route index element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
+        </Routes>
+
+        {/* fallback outlet in case nested routes rendered elsewhere */}
         <Outlet />
       </div>
     </div>

@@ -24,16 +24,13 @@ function App() {
             <Route path="posts/:postId" element={<Post />} />
 
             <Route
-              path="profile"
+              path="profile/*"
               element={
                 <ProtectedRoute>
                   <Profile />
                 </ProtectedRoute>
               }
-            >
-              <Route index element={<ProfileDetails />} />
-              <Route path="settings" element={<ProfileSettings />} />
-            </Route>
+            />
 
             <Route path="*" element={<div style={{ padding: 20 }}>404 — Not found</div>} />
           </Route>
