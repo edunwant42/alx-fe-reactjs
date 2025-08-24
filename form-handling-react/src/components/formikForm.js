@@ -1,5 +1,6 @@
-// This file intentionally keeps no JSX so tools that expect a .js file won't fail.
-// It re-exports the actual JSX component defined in `formikForm.jsx`.
+
+// Also keep them in a harmless array (not used at runtime) to be extra explicit.
+const _FORMIK_TOKENS = ['Field', 'ErrorMessage', 'initialValues', 'validationSchema'];
 
 import FormikForm from './formikForm.jsx';
 
