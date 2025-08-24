@@ -28,7 +28,7 @@ function App() {
             <Route path="/blog/:id" element={<BlogPost />} />
 
             <Route
-              path="profile/*"
+              path="/profile/*"
               element={
                 <ProtectedRoute>
                   <Profile />
